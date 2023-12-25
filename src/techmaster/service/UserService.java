@@ -6,10 +6,11 @@ import techmaster.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class UserService {
 
-    public void display(User user, ArrayList<AccountBanking> accountBankingList, ArrayList<Role> roleList) {
+    public void display(User user, Map<Integer,AccountBanking> accountBankingList, Map<Integer,Role> roleList) {
         System.out.println( "User{" +
                 "id=" + user.getId() +
                 ", name='" + user.getName() + '\'' +
@@ -20,33 +21,28 @@ public class UserService {
         );
     }
 
-    public void findOnlineUser(ArrayList<User> userList, ArrayList<AccountBanking> accountBankingList, ArrayList<Role> roleList) {
+    public void findOnlineUser(Map<Integer,User> userList,Map<Integer,AccountBanking> accountBankingList, Map<Integer,Role> roleList) {
         int count = 0;
-        for (User user : userList) {
+        for (User user : userList.values()) {
             if (user.getRoleId() == 1) {
+                display(user,accountBankingList,roleList);
                 count++;
-                System.out.println("User online: ");
-                display(user, accountBankingList, roleList);
             }
         }
         if (count == 0) {
             System.out.println("Khong tim thay user hoc online");
         }    }
 
-    public AccountBanking findAccountBankingById(int id, ArrayList<AccountBanking> accountBankingList) {
-        for (AccountBanking accountBanking : accountBankingList) {
-            if (accountBanking.getId() == id) {
-                return accountBanking;
+    public AccountBanking findAccountBankingById(int id, Map<Integer,AccountBanking> accountBankingList) {
+            if (accountBankingList.containsKey(id) ) {
+                return accountBankingList.get(id);
             }
-        }
         return null;
     }
-    public Role findRoleById(int id, ArrayList<Role> roleList) {
-        for (Role role : roleList) {
-            if (role.getId() == id) {
-                return role;
+    public Role findRoleById(int id, Map<Integer,Role> roleList) {
+            if (roleList.containsKey(id)) {
+                return roleList.get(id);
             }
-        }
         return null;
     }
 }
