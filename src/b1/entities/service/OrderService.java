@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class OrderService {
     OrderDetailService orderDetailService = new OrderDetailService();
     PersonService personService = new PersonService();
-    public Order insertOrder(Scanner scan, Map<Integer, Product> productMap) {
+/*    public Order insertOrder(Scanner scan, Map<Integer, Product> productMap) {
 
         System.out.println("Nhập ngày đặt hàng:dd/mm/yyyy ");
         String orderDate =  scan.nextLine();
@@ -26,6 +26,6 @@ public class OrderService {
         }
         Order order = new Order(total,personService.insert(scan),orderDetailMap);
         return order;
-    }
+    }*/
 
 }

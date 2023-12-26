@@ -9,15 +9,15 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class CourseService {
-    public void displayCourseStartDay(Map<Integer,Course> course ) {
-        for (int i = 0; i < course.size(); i++) {
-            
+    public void displayCourseStartDay(Map<Integer,Course> course, Map<Integer,UserDetailCourse> usd) {
+        for (Course i : course.values()) {
+            if (usd.containsKey(i.getId())) {
+                System.out.println("Khoa hoc: " + i.getName() +"Co lich hoc: ");
+                System.out.println(usd.get(i.getId()).toString());
+            }
         }
     }
 
-    public void displayCourseStartDay(Map<Integer,Course> course, Map<Integer,UserDetailCourse> usd, Map<Integer,OpenningScheduel> os) {
-
-    }
 
 
 }

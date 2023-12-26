@@ -16,7 +16,7 @@ public class Main {
         ProductService productService = new ProductService();
         productService.insertProductList(scan,productMap);
         OrderService orderService = new OrderService();
-       Order order = orderService.insertOrder(scan,productMap);
-        System.out.println(order);
+      /* Order order = orderService.insertOrder(scan,productMap);
+        System.out.println(order);*/
     }
 }
